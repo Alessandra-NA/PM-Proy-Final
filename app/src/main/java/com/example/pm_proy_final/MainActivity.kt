@@ -6,6 +6,7 @@ import com.example.pm_proy_final.fragments.AnunciosFragment
 import com.example.pm_proy_final.fragments.ChatPrincipalFragment
 import com.example.pm_proy_final.fragments.NuevoAnuncioFragment
 import com.example.pm_proy_final.fragments.PerfilFragment
+import com.example.pm_proy_final.models.UsuarioManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
