@@ -13,6 +13,21 @@
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/item_previewmessage.xml" value="0.5" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/menu/menu.xml" value="0.22" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/drawable/ic_launcher_information.xml" value="0.2703125" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/activity_login.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/activity_main.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/fragment_chatdirecto.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/fragment_chatprincipal.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.22916666666666666" />
+        <entry key="..\:/PROGRA MOVIL/PM-Proy-Final/app/src/main/res/layout/item_previewmessage.xml" value="0.22916666666666666" />
       </map>
     </option>
   </component>
