@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/imgMessageChat"
-        android:layout_width="59dp"
-        android:layout_height="59dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
@@ -18,23 +18,11 @@
         app:srcCompat="@drawable/user_msg" />
 
     <TextView
-        android:id="@+id/txtMessageType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="35dp"
-        android:layout_weight="1"
-        android:text="ty"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/txtContactNameChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="Nombre usuario"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,26 +30,25 @@
 
     <TextView
         android:id="@+id/txtMessageChat"
-        android:layout_width="240dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
         android:text="Mensaje"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtContactNameChat" />
 
     <TextView
-        android:id="@+id/txtDatePreview"
+        android:id="@+id/txtDateChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="32dp"
         android:text="Fecha"
         android:textSize="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

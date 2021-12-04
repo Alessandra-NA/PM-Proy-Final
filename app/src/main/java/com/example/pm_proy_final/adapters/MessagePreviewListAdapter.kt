@@ -26,9 +26,9 @@ class MessagePreviewListAdapter(
         val txtTipo: TextView
         val txtMensaje: TextView
         init{
-            txtContactName = view.findViewById(R.id.txtContactName)
+            txtContactName = view.findViewById(R.id.txtContactNameChat)
             txtTipo = view.findViewById(R.id.txtMessageType)
-            txtMensaje = view.findViewById(R.id.txtMessagePreview)
+            txtMensaje = view.findViewById(R.id.txtMessageChat)
             view.setOnClickListener(this)
         }
         override fun onClick(v: View?) {

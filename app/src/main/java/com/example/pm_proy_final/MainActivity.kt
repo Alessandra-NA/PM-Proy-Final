@@ -2,10 +2,7 @@ package com.example.pm_proy_final
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.pm_proy_final.fragments.AnunciosFragment
-import com.example.pm_proy_final.fragments.ChatPrincipalFragment
-import com.example.pm_proy_final.fragments.NuevoAnuncioFragment
-import com.example.pm_proy_final.fragments.PerfilFragment
+import com.example.pm_proy_final.fragments.*
 import com.example.pm_proy_final.managers.MensajeManager
 import com.example.pm_proy_final.models.Usuario
 import com.example.pm_proy_final.managers.UsuarioManager
@@ -81,6 +78,23 @@ class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedLi
     }
 
     override fun onSelect(mensaje: Mensaje) {
-        TODO("Not yet implemented")
+        var nameUsuario2: String
+        var idUsuario2: String
+        if(mensaje.idSender == usuario.id) {
+            nameUsuario2 = mensaje.nameReceiver
+            idUsuario2 = mensaje.idReceiver
+        }
+        else{
+            nameUsuario2 = mensaje.nameSender
+            idUsuario2 = mensaje.idSender
+        }
+        MensajeManager().getMensajes2(mensaje.idSender, mensaje.idReceiver){
+            setTitle(nameUsuario2)
+            var fragment = ChatDirectoFragment(it, usuario, nameUsuario2, idUsuario2)
+            val ft = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fragmentMain, fragment)
+            ft.commit()
+        }
+
     }
 }
