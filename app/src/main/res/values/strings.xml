@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PM-Proy-Final</string>
+    <string-array name="distritos">
+<item>San Luis</item>
+        <item>La molina</item>
+        <item>Brazil</item>
+        <item>Ecuador</item>
+    </string-array>
 </resources>
