@@ -1,6 +1,6 @@
-package com.example.pm_proy_final.models
+package com.example.pm_proy_final.managers
 
-import com.google.firebase.firestore.QuerySnapshot
+import com.example.pm_proy_final.models.Usuario
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*

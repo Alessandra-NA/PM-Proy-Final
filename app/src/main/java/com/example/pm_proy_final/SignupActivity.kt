@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pm_proy_final.models.UsuarioManager
+import com.example.pm_proy_final.managers.UsuarioManager
 
 class SignupActivity: AppCompatActivity() {
     private lateinit var txtUsername : String
