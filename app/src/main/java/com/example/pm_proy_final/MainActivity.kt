@@ -3,11 +3,14 @@ package com.example.pm_proy_final
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.pm_proy_final.fragments.*
@@ -31,7 +34,6 @@ class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedLi
             val mainHandler = Handler(Looper.getMainLooper())
             mainHandler.post(object : Runnable {
                 override fun run() {
-                    println("cargando")
                     checkMessageUpdates()
                     mainHandler.postDelayed(this, 3000)
                 }
@@ -94,6 +96,7 @@ class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedLi
         currentFragment = "chat"
         var nameUsuario2: String
         var idUsuario2: String
+
         if(mensaje.idSender == usuario.id) {
             nameUsuario2 = mensaje.nameReceiver
             idUsuario2 = mensaje.idReceiver
