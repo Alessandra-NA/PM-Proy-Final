@@ -27,7 +27,6 @@ class MensajeManager {
                 var idSender = document.data.get("idSender").toString()
                 var idReceiver = document.data.get("idReceiver").toString()
                 if(idSender == id || idReceiver == id){
-                    println(document)
                     val date = document.data.get("time") as com.google.firebase.Timestamp
                     val msg = Mensaje(
                         document.id,
@@ -55,7 +54,6 @@ class MensajeManager {
                 var idSender = document.data.get("idSender").toString()
                 var idReceiver = document.data.get("idReceiver").toString()
                 if((idSender == id1 && idReceiver == id2) || (idSender == id2 && idReceiver == id1)){
-                    println(document)
                     val date = document.data.get("time") as com.google.firebase.Timestamp
                     val msg = Mensaje(
                         document.id,
@@ -92,7 +90,22 @@ class MensajeManager {
                     }
                 }
             }
+            previews.sortWith(compareByDescending { it.time })
             callbackOK(previews)
+        }
+    }
+    fun getCountMensajes(id: String, callbackOK: (Int) -> Unit){
+        var count = 0
+        dbFirebase.collection("mensajes").get().addOnSuccessListener{
+            for(doc in it) if(doc.data.get("idReceiver").toString() == id) count++
+            callbackOK(count)
+        }
+    }
+    fun getCountMensajes2(id1: String, id2: String, callbackOK: (Int) -> Unit){
+        var count = 0
+        getMensajes2(id1, id2){
+            for(msg in it) if(msg.idReceiver == id1) count++
+            callbackOK(count)
         }
     }
 }

@@ -36,8 +36,7 @@ class MensajeListAdapter(val mensajes: ArrayList<Mensaje>, val usuario: Usuario)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if(mensajes[position].idSender == usuario.id) holder.txtContactNameChat.text = mensajes[position].nameReceiver
-        else holder.txtContactNameChat.text = mensajes[position].nameSender
+        holder.txtContactNameChat.text = mensajes[position].nameSender
         holder.txtMessageChat.text = mensajes[position].message
         holder.txtDateChat.text = SimpleDateFormat("dd/M/yyyy hh:mm").format(mensajes[position].time)
     }

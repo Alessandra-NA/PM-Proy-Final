@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.models.Mensaje
 import com.example.pm_proy_final.models.Usuario
+import java.text.SimpleDateFormat
 
 
 class MessagePreviewListAdapter(
@@ -25,10 +26,12 @@ class MessagePreviewListAdapter(
         val txtContactName: TextView
         val txtTipo: TextView
         val txtMensaje: TextView
+        val txtDate: TextView
         init{
             txtContactName = view.findViewById(R.id.txtContactNameChat)
             txtTipo = view.findViewById(R.id.txtMessageType)
             txtMensaje = view.findViewById(R.id.txtMessageChat)
+            txtDate = view.findViewById(R.id.txtDatePreview)
             view.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
@@ -50,12 +53,12 @@ class MessagePreviewListAdapter(
         if(mensajes[position].idReceiver == usuario.id){
             holder.txtContactName.text = mensajes[position].nameSender
             holder.txtTipo.text = "R:"
-            holder.txtMensaje.text = mensajes[position].message
         } else {
             holder.txtContactName.text = mensajes[position].nameReceiver
             holder.txtTipo.text = "Tú:"
-            holder.txtMensaje.text = mensajes[position].message
         }
+        holder.txtMensaje.text = mensajes[position].message
+        holder.txtDate.text = SimpleDateFormat("dd/M/yyyy hh:mm").format(mensajes[position].time)
     }
     override fun getItemCount(): Int {
         return mensajes.size
