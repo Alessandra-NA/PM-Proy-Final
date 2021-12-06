@@ -8,17 +8,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.pm_proy_final.fragments.*
 import com.example.pm_proy_final.managers.MensajeManager
 import com.example.pm_proy_final.models.Usuario
 import com.example.pm_proy_final.managers.UsuarioManager
+import com.example.pm_proy_final.models.Anuncio
 import com.example.pm_proy_final.models.Mensaje
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedListener {
+class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedListener,
+AnunciosFragment.OnAnuncioSelectedListener
+{
     lateinit var usuario: Usuario
     var countMensajes = 0
     var currentFragment = ""
@@ -156,5 +160,13 @@ class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedLi
 
     override fun onSelect(mensaje: Mensaje) {
         changeChatDirectoFragment(mensaje)
+    }
+
+    override fun onInfomacion(beta: Anuncio) {
+        Toast.makeText(this,beta.titulo, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onChat(alpha: Anuncio) {
+        Toast.makeText(this,alpha.userid, Toast.LENGTH_SHORT).show()
     }
 }

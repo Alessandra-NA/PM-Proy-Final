@@ -1,17 +1,169 @@
 package com.example.pm_proy_final.fragments
 
+import android.Manifest
+import android.app.Activity
+import android.app.ProgressDialog
+import android.content.ContentResolver
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.MimeTypeMap
+import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContentResolverCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.pm_proy_final.MainActivity
 import com.example.pm_proy_final.R
+import com.example.pm_proy_final.managers.AnuncioManager
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.theartofdev.edmodo.cropper.CropImage
 
-class NuevoAnuncioFragment: Fragment() {
+class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
+
+    private var imagen : ImageView? = null
+    private var titulo_post : EditText?=null
+    private var descripcion_post : EditText?=null
+    private var distritos : Spinner?=null
+
+    private var storagered: StorageReference?= null;
+//    private var imgref: DatabaseReference?=null;
+//    private var thumb_bitmap: Bitmap? =null;
+
+
+
+    private var actual_img: Uri? = null;
+    private var image_URL: String? = null;
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_nuevoanuncio, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        distritos = view.findViewById<Spinner>(R.id.distrito_post)
+        descripcion_post = view.findViewById<EditText>(R.id.descripcion_post)
+        titulo_post = view.findViewById<EditText>(R.id.titulo_post)
+        var camera_icon = view.findViewById<ImageView>(R.id.camera_post)
+        var galeria_icon = view.findViewById<ImageView>(R.id.galeria_post)
+        var button_post = view.findViewById<Button>(R.id.POST_BUTTON)
+        imagen = view.findViewById(R.id.fotos_post)
+
+        storagered = FirebaseStorage.getInstance().getReference();
+
+        var adapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.distritos,
+            android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        distritos!!.adapter=adapter;
+        distritos!!.onItemSelectedListener=this
+
+        galeria_icon.setOnClickListener{
+            requestPermission()
+        }
+
+        button_post.setOnClickListener {
+            FileUploader()
+        }
+
+    }
+
+    fun requestPermission(){
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
+        when{
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                pickPhotoFromGallery()
+            }else -> requestPermissionLaunche.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+        }else{
+            pickPhotoFromGallery()
+        }
+    }
+
+    private val requestPermissionLaunche = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ){isGranted->
+        if(isGranted){
+            pickPhotoFromGallery()
+        }else{
+            Toast.makeText(requireContext(),"Se necesitan habilitar los permisos",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val startForActivityGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){result ->
+        if(result.resultCode == Activity.RESULT_OK){
+            val data = result.data?.data
+            //opcional, resize the image-> data equals uri
+            this.actual_img=data
+            imagen!!.setImageURI(data)
+        }
+
+    }
+
+    private fun pickPhotoFromGallery() {
+        var intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        startForActivityGallery.launch(intent)
+    }
+
+
+    private fun FileUploader(){
+        var a = this.actual_img!!.lastPathSegment as String
+        var filePath = this.storagered!!.child("fotos").child(a)
+
+        filePath.putFile(this.actual_img!!).addOnSuccessListener { it->
+            filePath.downloadUrl.addOnSuccessListener { a->
+                this.image_URL = a.toString()
+
+                AnuncioManager().addAnuncio(titulo_post!!.text.toString(),
+                    this.distritos!!.selectedItem.toString(),
+                    this.descripcion_post!!.text.toString(),
+                    this.image_URL!!,
+                    true,
+                    "1638593746838"
+                )
+//                Glide.with(requireContext())
+//                    .load(a.toString())
+//                    .into(imagen!!)
+                Toast.makeText(requireContext(),"Anuncio ingresado con exito",Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+
+    }
+
+//imagen
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        var choice = p0!!.getItemAtPosition(p2).toString()
+        Toast.makeText(requireContext(), choice, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
+    }
+
 }

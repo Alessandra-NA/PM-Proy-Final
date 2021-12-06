@@ -8,6 +8,7 @@ import java.util.Date
 
 class MensajeManager {
     private val dbFirebase = Firebase.firestore
+
     fun enviarMensaje(idSender: String, idReceiver: String, nameSender: String, nameReceiver: String, message: String, time: Date, img: String){
         val msg = hashMapOf(
             "idSender" to idSender,
@@ -18,9 +19,12 @@ class MensajeManager {
             "time" to Timestamp(time),
             "img" to img
         )
+
         dbFirebase.collection("mensajes").document(Date().time.toString()).set(msg)
     }
     fun getMensajes1(id: String, callbackOK: (ArrayList<Mensaje>) -> Unit){
+
+
         dbFirebase.collection("mensajes").get().addOnSuccessListener {
             var messagesList = ArrayList<Mensaje>()
             for(document in it){

@@ -1,5 +1,6 @@
 package com.example.pm_proy_final.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,30 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.pm_proy_final.R
+import com.example.pm_proy_final.adapters.AnuncioListAdapter
+import com.example.pm_proy_final.managers.AnuncioManager
+import com.example.pm_proy_final.models.Anuncio
 
 class AnunciosFragment: Fragment(), OnItemSelectedListener {
+
+    interface OnAnuncioSelectedListener {
+        fun onInfomacion(beta: Anuncio)
+        fun onChat(alpha: Anuncio)
+    }
+
+
+    private var listener : OnAnuncioSelectedListener?=null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        listener = context as OnAnuncioSelectedListener
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
@@ -27,6 +47,10 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
         val distritos = view.findViewById<Spinner>(R.id.distrito)
 
 
+
+
+
+
         var adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.distritos,
@@ -37,6 +61,20 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
         distritos.adapter=adapter;
         distritos.onItemSelectedListener=this
 
+
+        AnuncioManager().getAllAnuncios({
+            val recycListadoAnuncio = view.findViewById<RecyclerView>(R.id.lista_anuncios)
+            recycListadoAnuncio.adapter = AnuncioListAdapter(it, this, {
+                        anuncio1: Anuncio ->
+                    listener?.onInfomacion(anuncio1)
+                },{
+                    anuncio2: Anuncio ->
+                listener?.onChat(anuncio2)
+            })
+
+        },{
+            Toast.makeText(context,"Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+        })
 
 
     }
