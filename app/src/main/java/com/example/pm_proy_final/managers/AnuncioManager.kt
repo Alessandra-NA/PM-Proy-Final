@@ -7,6 +7,7 @@ import com.example.pm_proy_final.models.Anuncio
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
+import kotlin.collections.HashMap
 import kotlin.coroutines.coroutineContext
 
 
@@ -91,6 +92,21 @@ class AnuncioManager {
                 }
                 callbackOK(anuncios)
             }
+    }
+
+    fun EditarAnuncio(id:String, Anuncio:Anuncio){
+
+        val anuncio1= hashMapOf(
+            "titulo"  to Anuncio.titulo,
+            "distrito" to Anuncio.distrito,
+            "descripcion" to Anuncio.descripcion,
+            "imagenURL" to Anuncio.imagenURL,
+            "estado" to Anuncio.estado,
+            "userid" to Anuncio.userid
+        )
+        dbFirebase.collection("anuncios")
+            .document(id)
+            .set(anuncio1)
     }
 
 

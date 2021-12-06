@@ -3,7 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2169230769230769" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.2" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatdirecto.xml" value="0.12273550724637682" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatprincipal.xml" value="0.19927536231884058" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_detalle_anuncio.xml" value="0.19927536231884058" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_editar_anuncio.xml" value="0.12273550724637682" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.20416666666666666" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_perfil.xml" value="0.20416666666666666" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.20416666666666666" />

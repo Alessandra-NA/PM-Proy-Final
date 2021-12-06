@@ -4,53 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    >
 
     <TextView
-        android:id="@+id/Estado_detalle"
+        android:id="@+id/Estado_editar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Nuevo Anuncio"
+        android:text="Editar Anuncio"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imagen_post"
+        android:id="@+id/imagen_editar"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Estado_detalle"
+        app:layout_constraintTop_toBottomOf="@+id/Estado_editar"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/galeria_post"
+        android:id="@+id/galeria_editar"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="120dp"
         android:background="#528CFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_editar"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <ImageView
-        android:id="@+id/camera_post"
+        android:id="@+id/camera_editar"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="10dp"
         android:background="#7693CD"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_editar"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <TextView
-        android:id="@+id/titulo_detalle"
+        android:id="@+id/titulo_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
@@ -59,7 +59,7 @@
         android:text="Titulo"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera_post" />
+        app:layout_constraintTop_toBottomOf="@+id/camera_editar" />
 
     <TextView
         android:id="@+id/textView13"
@@ -71,10 +71,10 @@
         android:text="Distrito"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_detalle" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_editar" />
 
     <TextView
-        android:id="@+id/estado_nuevo"
+        android:id="@+id/estado_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -95,10 +95,10 @@
         android:text="Descripcion"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estado_nuevo" />
+        app:layout_constraintTop_toBottomOf="@+id/estado_editar" />
 
     <EditText
-        android:id="@+id/titulo_post"
+        android:id="@+id/titulo_editar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="37dp"
@@ -109,11 +109,11 @@
         android:hint="Introduzca un titulo"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/titulo_detalle"
-        app:layout_constraintTop_toBottomOf="@+id/galeria_post" />
+        app:layout_constraintStart_toEndOf="@+id/titulo_text"
+        app:layout_constraintTop_toBottomOf="@+id/galeria_editar" />
 
     <Spinner
-        android:id="@+id/distrito_post"
+        android:id="@+id/distrito_editar"
         android:layout_width="206dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
@@ -122,10 +122,10 @@
         android:layout_marginEnd="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/titulo_post" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo_editar" />
 
     <Spinner
-        android:id="@+id/estado_post"
+        android:id="@+id/estado_editar"
         android:layout_width="206dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
@@ -135,30 +135,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/distrito_post" />
+        app:layout_constraintTop_toBottomOf="@+id/distrito_editar" />
 
     <EditText
-        android:id="@+id/descripcion_post"
+        android:id="@+id/descripcion_editar"
         android:layout_width="286dp"
         android:layout_height="72dp"
+        android:maxWidth="286dp"
+        android:maxHeight="72dp"
         android:layout_marginTop="10dp"
         android:backgroundTint="#9E8282"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Agregar descripcion del objeto"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.344"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Button
-        android:id="@+id/POST_BUTTON"
+        android:id="@+id/EDIT_BUTTON"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="POST"
+        android:text="EDIT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcion_post" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcion_editar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedListener,
-AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelectedListener
+AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelectedListener,
+        AnuncioDetalleFramget.OnAnuncioDetalleIcons
 {
     lateinit var usuario: Usuario
     var countMensajes = 0
@@ -123,6 +124,24 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
     }
+
+    fun changeDetalleAnuncio(anuncio1: Anuncio){
+        currentFragment = "detalle"
+        setTitle("Detalle producto")
+        var fragment = AnuncioDetalleFramget(anuncio1)
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.fragmentMain, fragment)
+        ft.commit()
+    }
+    fun changeEditarAnuncio(anuncio1:Anuncio){
+        currentFragment = "editar"
+        setTitle("Editando anuncio")
+        var fragment = EditarAnuncioFragment(anuncio1)
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.fragmentMain, fragment)
+        ft.commit()
+    }
+
     fun checkMessageUpdates(){
         MensajeManager().getCountMensajes(usuario.id){
             if(it>countMensajes){
@@ -164,7 +183,8 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     }
 
     override fun onInfomacion(beta: Anuncio) {
-        Toast.makeText(this,beta.titulo, Toast.LENGTH_SHORT).show()
+        changeDetalleAnuncio(beta)
+//        Toast.makeText(this,beta.titulo, Toast.LENGTH_SHORT).show()
     }
 
     override fun onChat(alpha: Anuncio) {
@@ -172,10 +192,19 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     }
 
     override fun onEditing(anuncio1: Anuncio) {
-        Toast.makeText(this,anuncio1.titulo, Toast.LENGTH_SHORT).show()
+        changeEditarAnuncio(anuncio1)
+
     }
 
     override fun onDelete(anuncio2: Anuncio) {
         Toast.makeText(this,anuncio2.estado.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun ChatDetalle(beta: Anuncio) {
+        Toast.makeText(this,beta.titulo.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun PerfilDetalle(alpha: Anuncio) {
+        Toast.makeText(this,alpha.descripcion.toString(), Toast.LENGTH_SHORT).show()
     }
 }

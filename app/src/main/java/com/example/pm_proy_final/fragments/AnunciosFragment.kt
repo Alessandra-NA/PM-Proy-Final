@@ -76,7 +76,7 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var choice = parent!!.getItemAtPosition(position).toString()
-        Toast.makeText(requireContext(), choice, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(requireContext(), choice, Toast.LENGTH_SHORT).show()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
