@@ -21,7 +21,7 @@
         android:id="@+id/fotos_post"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -31,7 +31,7 @@
         android:id="@+id/galeria_post"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="120dp"
         android:background="#528CFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:background="#7693CD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fotos_post"
@@ -67,11 +67,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Distrito"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <TextView
+        android:id="@+id/estado_nuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+
+        android:layout_marginTop="17dp"
+        android:text="Estado"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
         android:id="@+id/textView14"
@@ -79,11 +91,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         android:text="Descripcion"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/estado_nuevo" />
 
     <EditText
         android:id="@+id/titulo_post"
@@ -106,11 +118,24 @@
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/titulo_post" />
+
+    <Spinner
+        android:id="@+id/estado_post"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/distrito_post" />
 
     <EditText
         android:id="@+id/descripcion_post"

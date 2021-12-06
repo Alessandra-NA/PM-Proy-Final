@@ -44,12 +44,7 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val distritos = view.findViewById<Spinner>(R.id.distrito)
-
-
-
-
-
+        val distritos = view.findViewById<Spinner>(R.id.distrito_filtro_anuncio)
 
         var adapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -73,7 +68,7 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
             })
 
         },{
-            Toast.makeText(context,"Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"No se pudo obtener los anuncios", Toast.LENGTH_SHORT).show()
         })
 
 

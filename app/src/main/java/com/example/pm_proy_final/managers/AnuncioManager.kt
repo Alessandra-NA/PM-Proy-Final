@@ -70,6 +70,29 @@ class AnuncioManager {
             }
     }
 
+    fun getByUserIdAnuncio(id:String,callbackOK : (List<Anuncio>) -> Unit, callbackError: (String) -> Unit){
+        dbFirebase.collection("anuncios")
+            .whereEqualTo("userid",id)
+            .get()
+            .addOnSuccessListener {
+                    res->
+                val anuncios = arrayListOf<Anuncio>()
+                for(document in res){
+                    val p = Anuncio(
+                        document.id,
+                        document.data["titulo"]!! as String,
+                        document.data["distrito"]!! as String,
+                        document.data["descripcion"]!! as String,
+                        document.data["imagenURL"]!! as String,
+                        document.data["estado"] as Boolean,
+                        document.data["userid"] as String
+                    )
+                    anuncios.add(p)
+                }
+                callbackOK(anuncios)
+            }
+    }
+
 
 
 

@@ -29,12 +29,14 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.theartofdev.edmodo.cropper.CropImage
 
-class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
+class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSelectedListener {
 
     private var imagen : ImageView? = null
     private var titulo_post : EditText?=null
     private var descripcion_post : EditText?=null
     private var distritos : Spinner?=null
+    private var estado: Spinner?= null
+    private var codigouser= usercodigo
 
     private var storagered: StorageReference?= null;
 //    private var imgref: DatabaseReference?=null;
@@ -56,9 +58,10 @@ class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        distritos = view.findViewById<Spinner>(R.id.distrito_post)
-        descripcion_post = view.findViewById<EditText>(R.id.descripcion_post)
-        titulo_post = view.findViewById<EditText>(R.id.titulo_post)
+        distritos = view.findViewById(R.id.distrito_post)
+        estado = view.findViewById(R.id.estado_post)
+        descripcion_post = view.findViewById(R.id.descripcion_post)
+        titulo_post = view.findViewById(R.id.titulo_post)
         var camera_icon = view.findViewById<ImageView>(R.id.camera_post)
         var galeria_icon = view.findViewById<ImageView>(R.id.galeria_post)
         var button_post = view.findViewById<Button>(R.id.POST_BUTTON)
@@ -71,10 +74,20 @@ class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
             R.array.distritos,
             android.R.layout.simple_spinner_item
         );
+
+        var adapter2 = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.estado,
+            android.R.layout.simple_spinner_item
+        );
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         distritos!!.adapter=adapter;
         distritos!!.onItemSelectedListener=this
+        estado!!.adapter=adapter2;
+        estado!!.onItemSelectedListener=this
 
         galeria_icon.setOnClickListener{
             requestPermission()
@@ -142,8 +155,9 @@ class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
                     this.distritos!!.selectedItem.toString(),
                     this.descripcion_post!!.text.toString(),
                     this.image_URL!!,
-                    true,
-                    "1638593746838"
+                    this.estado!!.selectedItem.toString()=="ENCONTRADO"
+                    ,
+                    this.codigouser
                 )
 //                Glide.with(requireContext())
 //                    .load(a.toString())
@@ -159,7 +173,7 @@ class NuevoAnuncioFragment: Fragment(), AdapterView.OnItemSelectedListener {
 //imagen
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         var choice = p0!!.getItemAtPosition(p2).toString()
-        Toast.makeText(requireContext(), choice, Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {

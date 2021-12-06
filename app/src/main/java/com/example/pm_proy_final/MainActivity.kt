@@ -22,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedListener,
-AnunciosFragment.OnAnuncioSelectedListener
+AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelectedListener
 {
     lateinit var usuario: Usuario
     var countMensajes = 0
@@ -79,7 +79,7 @@ AnunciosFragment.OnAnuncioSelectedListener
     fun changeNuevoAnuncioFragment(){
         currentFragment = "nuevo"
         setTitle("Nuevo anuncio")
-        var fragment = NuevoAnuncioFragment()
+        var fragment = NuevoAnuncioFragment(this.usuario.id)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -169,5 +169,13 @@ AnunciosFragment.OnAnuncioSelectedListener
 
     override fun onChat(alpha: Anuncio) {
         Toast.makeText(this,alpha.userid, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onEditing(anuncio1: Anuncio) {
+        Toast.makeText(this,anuncio1.titulo, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onDelete(anuncio2: Anuncio) {
+        Toast.makeText(this,anuncio2.estado.toString(), Toast.LENGTH_SHORT).show()
     }
 }
