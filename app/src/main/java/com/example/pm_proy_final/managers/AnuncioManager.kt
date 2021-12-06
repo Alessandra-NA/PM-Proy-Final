@@ -26,7 +26,12 @@ class AnuncioManager {
         dbFirebase.collection("anuncios").document(Date().time.toString()).set(anuncio)
     }
 
-
+    fun eliminarAnuncio(anuncio: Anuncio, callbackOK: () -> Unit){
+        dbFirebase.collection("anuncios").document(anuncio.id).get().addOnSuccessListener{
+            it.reference.delete()
+            callbackOK()
+        }
+    }
     fun getAllAnuncios(callbackOK : (List<Anuncio>) -> Unit, callbackError: (String) -> Unit){
        dbFirebase.collection("anuncios").get()
            .addOnSuccessListener {

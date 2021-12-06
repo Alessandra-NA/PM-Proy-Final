@@ -16,8 +16,9 @@ import com.example.pm_proy_final.R
 import com.example.pm_proy_final.adapters.AnuncioListAdapter
 import com.example.pm_proy_final.managers.AnuncioManager
 import com.example.pm_proy_final.models.Anuncio
+import com.example.pm_proy_final.models.Usuario
 
-class AnunciosFragment: Fragment(), OnItemSelectedListener {
+class AnunciosFragment(var usuario: Usuario): Fragment(), OnItemSelectedListener {
 
     interface OnAnuncioSelectedListener {
         fun onInfomacion(beta: Anuncio)
@@ -59,7 +60,7 @@ class AnunciosFragment: Fragment(), OnItemSelectedListener {
 
         AnuncioManager().getAllAnuncios({
             val recycListadoAnuncio = view.findViewById<RecyclerView>(R.id.lista_anuncios)
-            recycListadoAnuncio.adapter = AnuncioListAdapter(it, this, {
+            recycListadoAnuncio.adapter = AnuncioListAdapter(usuario, it, this, {
                         anuncio1: Anuncio ->
                     listener?.onInfomacion(anuncio1)
                 },{

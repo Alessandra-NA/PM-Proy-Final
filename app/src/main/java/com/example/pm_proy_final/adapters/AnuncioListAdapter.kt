@@ -5,13 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.models.Anuncio
+import com.example.pm_proy_final.models.Usuario
 
 class AnuncioListAdapter(
+    private val usuario: Usuario,
     private val anuncioList : List<Anuncio>,
     private val fragment: Fragment,
     private val listener: (Anuncio)->Unit,
@@ -56,7 +59,11 @@ class AnuncioListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        println(anuncioList[position].userid == usuario.id)
+        if(anuncioList[position].userid == usuario.id) {
+            holder.coment.visibility = View.INVISIBLE
+            holder.coment.marginStart
+        }
         holder.txtitulo.text = anuncioList[position].titulo
         Glide.with(fragment)
             .load(anuncioList[position].imagenURL)

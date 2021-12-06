@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/blue_1"
+        android:background="#F6F6F6"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,16 +27,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/Estadoanuncio"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingVertical="8dp"
-                android:textAlignment="center"
                 android:text="TextView"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#FFFFFF"
+                android:textColor="#2C2C2C"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,10 +49,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:paddingVertical="8dp"
-                android:textAlignment="center"
                 android:text="TextView"
+                android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="#FFFFFF"
+                android:textColor="#7A7A7A"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -63,7 +66,6 @@
             android:id="@+id/informacionanuncio"
             android:layout_width="50dp"
             android:layout_height="50dp"
-
             android:layout_margin="12dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -72,7 +74,8 @@
             app:layout_constraintEnd_toStartOf="@+id/comentanuncio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_launcher_information" />
+            tools:srcCompat="@drawable/ic_launcher_information"
+            app:tint="@color/blue_1" />
 
         <ImageView
             android:id="@+id/comentanuncio"
@@ -85,7 +88,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/informacionanuncio"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/ic_baseline_chat_24" />
+            tools:srcCompat="@drawable/ic_baseline_chat_24"
+            app:tint="@color/blue_1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

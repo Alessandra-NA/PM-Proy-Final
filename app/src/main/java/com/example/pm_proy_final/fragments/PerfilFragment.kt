@@ -10,12 +10,18 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pm_proy_final.R
+import com.example.pm_proy_final.adapters.AnuncioListAdapter
 import com.example.pm_proy_final.adapters.AnuncioPerfilListAdapter
 import com.example.pm_proy_final.managers.AnuncioManager
 import com.example.pm_proy_final.models.Anuncio
 import com.example.pm_proy_final.models.Usuario
 
-class PerfilFragment(val usuario: Usuario): Fragment() {
+class PerfilFragment(val usuario: Usuario, val usuarioLogin: Usuario): Fragment() {
+
+    interface OnPerfilAnuncioSelectedListener {
+        fun onInfomacion2(anuncio: Anuncio)
+        fun onChat2(anuncio: Anuncio)
+    }
 
     interface OnAnuncioPerfilSelectedListener{
         fun onEditing(anuncio1: Anuncio)
@@ -24,6 +30,7 @@ class PerfilFragment(val usuario: Usuario): Fragment() {
 
     private var user: Usuario ?= usuario
     private var listener: OnAnuncioPerfilSelectedListener?=null
+    private var listener2: OnPerfilAnuncioSelectedListener?=null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,19 +51,34 @@ class PerfilFragment(val usuario: Usuario): Fragment() {
         view.findViewById<TextView>(R.id.txtNombresPerfil).text = usuario.nombres
         view.findViewById<TextView>(R.id.txtApellidosPerfil).text = usuario.apellidos
 
-       AnuncioManager().getByUserIdAnuncio(this.usuario.id,{
-           val recycListadoAnuncioPerfil = view.findViewById<RecyclerView>(R.id.lista_anuncios_perfil)
-           recycListadoAnuncioPerfil.adapter=AnuncioPerfilListAdapter(it,this,{
-                   anuncio1: Anuncio ->
-               listener?.onEditing(anuncio1)
+       if(usuario.id == usuarioLogin.id) {
+           AnuncioManager().getByUserIdAnuncio(this.usuario.id,{
+               val recycListadoAnuncioPerfil = view.findViewById<RecyclerView>(R.id.lista_anuncios_perfil)
+               recycListadoAnuncioPerfil.adapter=AnuncioPerfilListAdapter(it,this,{
+                       anuncio1: Anuncio ->
+                   listener?.onEditing(anuncio1)
+               },{ anuncio2: Anuncio ->
+                   listener?.onDelete(anuncio2)
+               })
            },{
-                   anuncio2: Anuncio ->
-               listener?.onDelete(anuncio2)
+               Toast.makeText(context,"Couldnt get the annouces", Toast.LENGTH_SHORT).show()
            })
-       },{
-           Toast.makeText(context,"Couldnt get the annouces", Toast.LENGTH_SHORT).show()
-       })
-
+       }
+       else {
+           AnuncioManager().getByUserIdAnuncio(this.usuario.id,{
+               val recycListadoAnuncio = view.findViewById<RecyclerView>(R.id.lista_anuncios_perfil)
+               recycListadoAnuncio.adapter = AnuncioListAdapter(usuarioLogin, it, this, {
+                       anuncio1: Anuncio ->
+                   println("pre oninfo2")
+                   listener2?.onInfomacion2(anuncio1)
+               },{
+                       anuncio2: Anuncio ->
+                   listener2?.onChat2(anuncio2)
+               })
+           },{
+               Toast.makeText(context,"Couldnt get the annouces", Toast.LENGTH_SHORT).show()
+           })
+       }
 
     }
 }

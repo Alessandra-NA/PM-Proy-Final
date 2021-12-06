@@ -34,6 +34,18 @@ class UsuarioManager() {
             callbackOK(usuario)
         }
     }
+    fun getUsuarioById(id: String, callbackOK: (Usuario) -> Unit){
+        dbFirebase.collection("usuarios").document(id).get().addOnSuccessListener { res ->
+            val usuario = Usuario(
+                res.id,
+                res.data?.get("username").toString(),
+                res.data?.get("password").toString(),
+                res.data?.get("nombres").toString(),
+                res.data?.get("apellidos").toString()
+            )
+            callbackOK(usuario)
+        }
+    }
     fun verificarExisteUsuario(username: String, callbackOK: (Boolean) -> Unit){
         dbFirebase.collection("usuarios").whereEqualTo("username", username).get()
             .addOnSuccessListener {

@@ -6,25 +6,14 @@
     android:layout_height="match_parent"
    >
 
-    <TextView
-        android:id="@+id/Estado_detalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Nuevo Anuncio"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imagen_post"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Estado_detalle"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -33,31 +22,33 @@
         android:layout_height="55dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="120dp"
-        android:background="#528CFF"
+        android:background="#FFFFFF"
+        app:tint="@color/blue_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_post"/>
 
     <ImageView
         android:id="@+id/camera_post"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="46dp"
+        android:layout_height="52dp"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="10dp"
-        android:background="#7693CD"
+        android:layout_marginTop="14dp"
+        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:srcCompat="@drawable/ic_baseline_camera_alt_24"
+        app:tint="@color/blue_1"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_post"/>
 
     <TextView
         android:id="@+id/titulo_detalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
+        android:layout_marginStart="40dp"
 
         android:layout_marginTop="24dp"
-        android:text="Titulo"
-        android:textSize="24sp"
+        android:text="Titulo:"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/camera_post" />
 
@@ -67,9 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="16dp"
-        android:text="Distrito"
-        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:text="Distrito:"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_detalle" />
 
@@ -79,9 +70,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="17dp"
-        android:text="Estado"
-        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:text="Estado:"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -91,65 +82,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="14dp"
-        android:text="Descripcion"
-        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:text="Descripción:"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/estado_nuevo" />
 
     <EditText
         android:id="@+id/titulo_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_width="245dp"
+        android:layout_height="45dp"
         android:layout_marginTop="16dp"
 
-        android:layout_marginEnd="61dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="Introduzca un titulo"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/titulo_detalle"
         app:layout_constraintTop_toBottomOf="@+id/galeria_post" />
 
     <Spinner
         android:id="@+id/distrito_post"
-        android:layout_width="206dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="245dp"
+        android:layout_height="39dp"
 
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/titulo_post" />
 
     <Spinner
         android:id="@+id/estado_post"
-        android:layout_width="206dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="244dp"
+        android:layout_height="42dp"
 
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/distrito_post" />
-
-    <EditText
-        android:id="@+id/descripcion_post"
-        android:layout_width="286dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#9E8282"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Agregar descripcion del objeto"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.344"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Button
         android:id="@+id/POST_BUTTON"
@@ -160,5 +130,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcion_post" />
+
+    <EditText
+        android:id="@+id/descripcion_post"
+        android:layout_width="333dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Agregar descripcion del objeto"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

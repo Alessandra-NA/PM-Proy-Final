@@ -5,61 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/Estado_detalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Detalle Anuncio"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imagen_detalle"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Estado_detalle"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/perfil_detalle_anuncio"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="40dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="24dp"
         android:background="#7693CD"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen_detalle"
-        app:srcCompat="@drawable/ic_baseline_person_24" />
+        app:srcCompat="@drawable/ic_baseline_person_24"
+        app:tint="@color/blue_1" />
 
     <ImageView
         android:id="@+id/chat_detalle_anuncio"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="244dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="34dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:background="#7693CD"
+        android:backgroundTint="@color/white"
+        app:tint="@color/blue_1"
         app:layout_constraintEnd_toStartOf="@+id/perfil_detalle_anuncio"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen_detalle"
         app:srcCompat="@drawable/ic_baseline_chat_24" />
 
     <TextView
         android:id="@+id/titulo_detalle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="227dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
         android:maxWidth="200dp"
         android:maxHeight="70dp"
-        android:layout_marginTop="20dp"
         android:text="Titulo"
         android:textAlignment="viewStart"
-        android:textSize="28dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/chat_detalle_anuncio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen_detalle" />
@@ -70,9 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Distrito: "
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_detalle" />
 
@@ -81,25 +72,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
         android:text="Distrito_info"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/titulo_detalle" />
 
     <TextView
         android:id="@+id/descripcion_detalle"
-        android:layout_width="342dp"
-        android:layout_height="110dp"
+        android:layout_width="327dp"
+        android:layout_height="257dp"
+        android:layout_marginTop="8dp"
         android:maxWidth="342dp"
         android:maxHeight="110dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="34dp"
         android:text="tres tigres tragaban trigo"
         android:textAlignment="viewStart"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -110,11 +99,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="245dp"
-        android:text="Descripcion"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="Descripción: "
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 

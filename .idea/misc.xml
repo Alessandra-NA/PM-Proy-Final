@@ -3,35 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2169230769230769" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.2" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatdirecto.xml" value="0.12273550724637682" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatprincipal.xml" value="0.19927536231884058" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_detalle_anuncio.xml" value="0.19927536231884058" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_editar_anuncio.xml" value="0.12273550724637682" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.20416666666666666" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_perfil.xml" value="0.20416666666666666" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.20416666666666666" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio_perfil.xml" value="0.20416666666666666" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.21666666666666667" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/PM-Proy-Final/app/src/main/res/layout/activity_main.xml" value="0.2028985507246377" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.1" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/PM-Proy-Final/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.25" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.33" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.2140625" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.2140625" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.2140625" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2140625" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2140625" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/drawable/ic_launcher_information.xml" value="0.2140625" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/activity_signup.xml" value="0.25" />
-        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_anuncios.xml" value="0.128125" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_anuncios.xml" value="0.33" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_chatdirecto.xml" value="0.1348314606741573" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_chatprincipal.xml" value="0.16" />
-        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.5" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_detalle_anuncio.xml" value="0.33" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_editar_anuncio.xml" value="0.27291666666666664" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.33" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_perfil.xml" value="0.33" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/fragment_uploadimage.xml" value="0.1" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/item_anuncio.xml" value="0.1" />
+        <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/item_anuncio_perfil.xml" value="0.75" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/item_message.xml" value="0.5" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/layout/item_previewmessage.xml" value="0.5" />
         <entry key="..\:/GUARDAR/Universidad/2021-2/Programacion-movil/PMProyFinal/app/src/main/res/menu/menu.xml" value="0.22" />

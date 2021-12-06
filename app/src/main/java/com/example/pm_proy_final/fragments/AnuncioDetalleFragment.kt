@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.marginStart
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.models.Anuncio
+import com.example.pm_proy_final.models.Usuario
 
-class AnuncioDetalleFramget(anuncio:Anuncio): Fragment() {
+class AnuncioDetalleFragment(anuncio:Anuncio, var usuario: Usuario): Fragment() {
 
     interface OnAnuncioDetalleIcons{
         fun ChatDetalle(beta: Anuncio)
@@ -41,18 +43,21 @@ class AnuncioDetalleFramget(anuncio:Anuncio): Fragment() {
         val descripcion = view.findViewById<TextView>(R.id.descripcion_detalle)
         val titulo = view.findViewById<TextView>(R.id.titulo_detalle)
         val distrito = view.findViewById<TextView>(R.id.distrito_detalle)
-        val estado = view.findViewById<TextView>(R.id.Estado_detalle)
         val imagen = view.findViewById<ImageView>(R.id.imagen_detalle)
 
         //iconos
         val chat = view.findViewById<ImageView>(R.id.chat_detalle_anuncio)
         val perfil = view.findViewById<ImageView>(R.id.perfil_detalle_anuncio)
+        if(anuncio.userid == usuario.id) {
+            chat.visibility = View.INVISIBLE
+            perfil.visibility = View.INVISIBLE
+        }
 
         descripcion.text= this.anuncio.descripcion
         titulo.text = this.anuncio.titulo
         distrito.text = this.anuncio.distrito
-        if(this.anuncio.estado) estado.text = "ENCONTRADO"
-        else estado.text = "PERDIDO"
+        if(this.anuncio.estado) this.activity?.setTitle("ENCONTRADO")
+        else this.activity?.setTitle("PERDIDO")
         Glide.with(this)
             .load(anuncio.imagenURL)
             .fitCenter()

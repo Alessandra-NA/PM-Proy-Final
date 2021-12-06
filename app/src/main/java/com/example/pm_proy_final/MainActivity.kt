@@ -1,9 +1,9 @@
 package com.example.pm_proy_final
 
+import android.app.AlertDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.pm_proy_final.fragments.*
+import com.example.pm_proy_final.managers.AnuncioManager
 import com.example.pm_proy_final.managers.MensajeManager
 import com.example.pm_proy_final.models.Usuario
 import com.example.pm_proy_final.managers.UsuarioManager
@@ -23,7 +24,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), ChatPrincipalFragment.OnChatSelectedListener,
 AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelectedListener,
-        AnuncioDetalleFramget.OnAnuncioDetalleIcons
+        AnuncioDetalleFragment.OnAnuncioDetalleIcons, PerfilFragment.OnPerfilAnuncioSelectedListener
 {
     lateinit var usuario: Usuario
     var countMensajes = 0
@@ -41,8 +42,8 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
                     mainHandler.postDelayed(this, 3000)
                 }
             })
+            changeAnunciosFragment()
         }
-        changeAnunciosFragment()
         createNotificationChannel()
         val bottomnav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomnav.setOnNavigationItemSelectedListener {
@@ -72,7 +73,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     fun changeAnunciosFragment(){
         currentFragment = "anuncios"
         setTitle("Anuncios")
-        var fragment = AnunciosFragment()
+        var fragment = AnunciosFragment(usuario)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -119,7 +120,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     fun changePerfilFragment(){
         currentFragment = "perfil"
         setTitle("Perfil")
-        var fragment = PerfilFragment(usuario)
+        var fragment = PerfilFragment(usuario, usuario)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -128,7 +129,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     fun changeDetalleAnuncio(anuncio1: Anuncio){
         currentFragment = "detalle"
         setTitle("Detalle producto")
-        var fragment = AnuncioDetalleFramget(anuncio1)
+        var fragment = AnuncioDetalleFragment(anuncio1, usuario)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -187,8 +188,16 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
 //        Toast.makeText(this,beta.titulo, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onChat(alpha: Anuncio) {
-        Toast.makeText(this,alpha.userid, Toast.LENGTH_SHORT).show()
+    override fun onChat(anuncio: Anuncio) {
+        MensajeManager().getMensajes2(usuario.id, anuncio.userid){
+            UsuarioManager().getUsuarioById(anuncio.userid){ usr ->
+                setTitle((usr.nombres + " " + usr.apellidos).capitalize())
+                var fragment = ChatDirectoFragment(it, usuario, usr.nombres + " " + usr.apellidos, usr.id)
+                val ft = supportFragmentManager.beginTransaction()
+                ft.replace(R.id.fragmentMain, fragment)
+                ft.commit()
+            }
+        }
     }
 
     override fun onEditing(anuncio1: Anuncio) {
@@ -197,14 +206,65 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     }
 
     override fun onDelete(anuncio2: Anuncio) {
-        Toast.makeText(this,anuncio2.estado.toString(), Toast.LENGTH_SHORT).show()
+        showAlertDialog(anuncio2)
     }
 
-    override fun ChatDetalle(beta: Anuncio) {
-        Toast.makeText(this,beta.titulo.toString(), Toast.LENGTH_SHORT).show()
+    private fun showAlertDialog(anuncio: Anuncio) {
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(this@MainActivity)
+        alertDialog.setTitle("Alerta")
+        alertDialog.setMessage("¿Quieres eliminar este anuncio?")
+        alertDialog.setPositiveButton(
+            "Eliminar"
+        ) { _, _ ->
+            AnuncioManager().eliminarAnuncio(anuncio){
+                Toast.makeText(this, "Anuncio eliminado", Toast.LENGTH_SHORT).show()
+                changePerfilFragment()
+            }
+        }
+        alertDialog.setNegativeButton(
+            "No"
+        ) { _, _ -> }
+        val alert: AlertDialog = alertDialog.create()
+        alert.setCanceledOnTouchOutside(false)
+        alert.show()
     }
 
-    override fun PerfilDetalle(alpha: Anuncio) {
-        Toast.makeText(this,alpha.descripcion.toString(), Toast.LENGTH_SHORT).show()
+    override fun ChatDetalle(anuncio: Anuncio) {
+        MensajeManager().getMensajes2(usuario.id, anuncio.userid){
+            UsuarioManager().getUsuarioById(anuncio.userid){ usr ->
+                setTitle((usr.nombres + " " + usr.apellidos).capitalize())
+                var fragment = ChatDirectoFragment(it, usuario, usr.nombres + " " + usr.apellidos, usr.id)
+                val ft = supportFragmentManager.beginTransaction()
+                ft.replace(R.id.fragmentMain, fragment)
+                ft.commit()
+            }
+        }
+    }
+
+    override fun PerfilDetalle(anuncio: Anuncio) {
+        UsuarioManager().getUsuarioById(anuncio.userid){ usr ->
+            setTitle((usr.nombres + " " + usr.apellidos).capitalize())
+            var fragment = PerfilFragment(usr, usuario)
+            val ft = supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fragmentMain, fragment)
+            ft.commit()
+        }
+    }
+
+    override fun onInfomacion2(anuncio: Anuncio) {
+        println("oninformacion2")
+        changeDetalleAnuncio(anuncio)
+    }
+
+    override fun onChat2(anuncio: Anuncio) {
+        MensajeManager().getMensajes2(usuario.id, anuncio.userid){
+            UsuarioManager().getUsuarioById(anuncio.userid){ usr ->
+                setTitle((usr.nombres + " " + usr.apellidos).capitalize())
+                var fragment = ChatDirectoFragment(it, usuario, usr.nombres + " " + usr.apellidos, usr.id)
+                val ft = supportFragmentManager.beginTransaction()
+                ft.replace(R.id.fragmentMain, fragment)
+                ft.commit()
+            }
+        }
     }
 }
