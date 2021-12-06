@@ -158,6 +158,8 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
 
 
     private fun FileUploader(){
+
+        //se debe eliminar los storages anteriores aqui
         var a = this.actual_img!!.lastPathSegment as String
 
         var filePath = this.storagered!!.child("fotos").child(a)

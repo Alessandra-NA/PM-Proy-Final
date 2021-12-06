@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.adapters.AnuncioListAdapter
 import com.example.pm_proy_final.adapters.AnuncioPerfilListAdapter
@@ -50,6 +51,8 @@ class PerfilFragment(val usuario: Usuario, val usuarioLogin: Usuario): Fragment(
         view.findViewById<TextView>(R.id.txtUsernamePerfil).text = usuario.username
         view.findViewById<TextView>(R.id.txtNombresPerfil).text = usuario.nombres
         view.findViewById<TextView>(R.id.txtApellidosPerfil).text = usuario.apellidos
+
+
 
        if(usuario.id == usuarioLogin.id) {
            AnuncioManager().getByUserIdAnuncio(this.usuario.id,{

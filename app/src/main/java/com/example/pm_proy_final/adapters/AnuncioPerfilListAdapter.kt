@@ -65,15 +65,18 @@ class AnuncioPerfilListAdapter (
             .fitCenter()
             .into(holder.imagen)
 
+
         Glide.with(fragment)
-            .load(R.mipmap.ic_launcher_trash)
+            .load(R.drawable.ic_baseline_delete_24)
             .fitCenter()
             .into(holder.trash)
 
+
         Glide.with(fragment)
-            .load(R.mipmap.ic_launcher_edit)
+            .load(R.drawable.ic_baseline_edit_24)
             .fitCenter()
             .into(holder.Editing)
+
 
         holder.trash.setOnClickListener { listener2(anuncioList[position]) }
 

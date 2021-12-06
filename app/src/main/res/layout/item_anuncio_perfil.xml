@@ -38,6 +38,7 @@
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#2C2C2C"
+
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +89,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/editar_anuncio_perfil"
                     app:layout_constraintTop_toTopOf="parent"
+
                     app:tint="@color/blue_1"
                     tools:srcCompat="@drawable/ic_baseline_delete_24" />
 
