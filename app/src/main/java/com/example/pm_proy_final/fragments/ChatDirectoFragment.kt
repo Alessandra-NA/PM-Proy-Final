@@ -49,6 +49,7 @@ class ChatDirectoFragment(var mensajes: ArrayList<Mensaje>,
         val listaMensajes = view.findViewById<RecyclerView>(R.id.listaMensajes)
         var countMensajes = 0
         listaMensajes.adapter = MensajeListAdapter(mensajes, usuario)
+
         mainHandler.post(object : Runnable {
             override fun run() {
                 MensajeManager().getCountMensajes2(usuario.id, idUsuario2){
