@@ -30,6 +30,7 @@ class NuevoAnuncioFragment(var usuario: Usuario, usercodigo: String): Fragment()
     private var distritos : Spinner?=null
     private var estado: Spinner?= null
     private var codigouser= usercodigo
+    private var seleccion:Boolean = false;
 
     private var storagered: StorageReference?= null;
 //    private var imgref: DatabaseReference?=null;
@@ -86,7 +87,12 @@ class NuevoAnuncioFragment(var usuario: Usuario, usercodigo: String): Fragment()
         }
 
         button_post.setOnClickListener {
-            FileUploader()
+            if(this.seleccion && titulo_post!!.text.toString()!="" && this.descripcion_post!!.text.toString()!=""){
+                FileUploader()
+            }
+            else{
+                Toast.makeText(requireContext(),"Ingresa todos los datos",Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
@@ -122,6 +128,7 @@ class NuevoAnuncioFragment(var usuario: Usuario, usercodigo: String): Fragment()
         if(result.resultCode == Activity.RESULT_OK){
             val data = result.data?.data
             //opcional, resize the image-> data equals uri
+            this.seleccion=true
             this.actual_img=data
             imagen!!.setImageURI(data)
         }
