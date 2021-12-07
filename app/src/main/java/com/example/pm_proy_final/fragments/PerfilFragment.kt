@@ -36,6 +36,7 @@ class PerfilFragment(val usuario: Usuario, val usuarioLogin: Usuario): Fragment(
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as OnAnuncioPerfilSelectedListener
+        listener2 = context as OnPerfilAnuncioSelectedListener
     }
 
 

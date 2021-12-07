@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.1" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.1" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio_perfil.xml" value="0.18" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_message.xml" value="0.17980072463768115" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_previewmessage.xml" value="0.17980072463768115" />

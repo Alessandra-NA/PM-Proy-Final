@@ -80,13 +80,12 @@ class AnuncioListAdapter(
             .fitCenter()
             .into(holder.coment)
 
+
         holder.coment.setOnClickListener { listener2(anuncioList[position]) }
 
         if(anuncioList[position].estado) holder.txtEstadp.text = "ENCONTRADO"
         else holder.txtEstadp.text = "PERDIDO"
-
 //
-
     }
 
 
