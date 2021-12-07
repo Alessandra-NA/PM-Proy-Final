@@ -54,7 +54,6 @@ class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSe
         estado = view.findViewById(R.id.estado_post)
         descripcion_post = view.findViewById(R.id.descripcion_post)
         titulo_post = view.findViewById(R.id.titulo_post)
-        var camera_icon = view.findViewById<ImageView>(R.id.camera_post)
         var galeria_icon = view.findViewById<ImageView>(R.id.galeria_post)
         var button_post = view.findViewById<Button>(R.id.POST_BUTTON)
         imagen = view.findViewById(R.id.imagen_post)

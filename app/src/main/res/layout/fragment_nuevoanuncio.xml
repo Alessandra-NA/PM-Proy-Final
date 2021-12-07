@@ -20,25 +20,13 @@
         android:id="@+id/galeria_post"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginTop="240dp"
         android:background="#FFFFFF"
-        app:tint="@color/blue_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"/>
-
-    <ImageView
-        android:id="@+id/camera_post"
-        android:layout_width="46dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="14dp"
-        android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_camera_alt_24"
-        app:tint="@color/blue_1"
-        app:layout_constraintTop_toBottomOf="@+id/imagen_post"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24"
+        app:tint="@color/blue_1" />
 
     <TextView
         android:id="@+id/titulo_detalle"
@@ -46,11 +34,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:text="Titulo:"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera_post" />
+        app:layout_constraintTop_toBottomOf="@+id/galeria_post" />
 
     <TextView
         android:id="@+id/textView13"

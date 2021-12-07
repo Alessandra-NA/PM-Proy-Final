@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Mensaje"
         android:inputType="textPersonName"
@@ -25,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
         android:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,18 +43,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaMensajes"
+        android:layout_width="409dp"
+        android:layout_height="680dp"
         android:scrollbars="vertical"
-        app:stackFromEnd="true"
-        app:reverseLayout="true"
-        android:layout_width="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_height="600dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/edTxtEnviarMensaje"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_message"
-        tools:itemCount="3"/>
+        app:reverseLayout="true"
+        app:stackFromEnd="true"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_message" />
 </androidx.constraintlayout.widget.ConstraintLayout>

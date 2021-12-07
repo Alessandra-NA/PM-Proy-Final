@@ -28,6 +28,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
 {
     lateinit var usuario: Usuario
     var countMensajes = 0
+    var countAnuncios = 0
     var currentFragment = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +40,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
             mainHandler.post(object : Runnable {
                 override fun run() {
                     checkMessageUpdates()
+                    checkAnunciosUpdates()
                     mainHandler.postDelayed(this, 3000)
                 }
             })
@@ -141,6 +143,18 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
+    }
+    fun checkAnunciosUpdates(){
+        AnuncioManager().getCountAnuncios(){
+            if(it>countAnuncios){
+                if(countAnuncios!=0) {
+                    sendNotification()
+                    if (currentFragment == "anuncios") changeAnunciosFragment()
+                    //if (currentFragment == "chat")  ChatDirectoFragment("","","","").
+                }
+                countAnuncios = it
+            }
+        }
     }
 
     fun checkMessageUpdates(){

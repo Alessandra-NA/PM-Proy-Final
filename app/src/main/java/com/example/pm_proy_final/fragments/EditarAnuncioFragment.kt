@@ -63,7 +63,6 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
         estado = view.findViewById(R.id.estado_editar)
         descripcion_edit = view.findViewById(R.id.descripcion_editar)
         titulo_edit = view.findViewById(R.id.titulo_editar)
-        var camera_icon = view.findViewById<ImageView>(R.id.camera_editar)
         var galeria_icon = view.findViewById<ImageView>(R.id.galeria_editar)
         var button_edit = view.findViewById<Button>(R.id.EDIT_BUTTON)
         imagen = view.findViewById(R.id.imagen_editar)
