@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.fragment.app.Fragment
@@ -38,7 +39,7 @@ class AnunciosFragment(var usuario: Usuario): Fragment(), OnItemSelectedListener
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        this.activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         return inflater.inflate(R.layout.fragment_anuncios, container, false)
     }
 

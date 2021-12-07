@@ -4,6 +4,7 @@ package com.example.pm_proy_final.managers
 import android.util.Log
 import android.widget.Toast
 import com.example.pm_proy_final.models.Anuncio
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -41,7 +42,7 @@ class AnuncioManager {
        dbFirebase.collection("anuncios").get()
            .addOnSuccessListener {
                res->
-               val anuncios : ArrayList<Anuncio> = ArrayList();
+               var anuncios : ArrayList<Anuncio> = ArrayList();
                for(document in res){
                    val p = Anuncio(
                        document.id,
@@ -55,32 +56,9 @@ class AnuncioManager {
                    )
                    anuncios.add(p)
                }
-               callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
+               if(anuncios.size > 1) anuncios = anuncios.reversed() as ArrayList<Anuncio>
+               callbackOK(anuncios)
            }
-    }
-
-    fun getByIdAnuncio(id:String,callbackOK : (Anuncio) -> Unit, callbackError: (String) -> Unit){
-        dbFirebase.collection("anuncios")
-            .get()
-            .addOnSuccessListener {
-                res->
-                var p : Anuncio? =null
-                for(document in res){
-                    if(document.id==id){
-                        Log.e("DETECCION","SE DETECTO EL ID")
-                        p = Anuncio(
-                            document.id,
-                            document.data["titulo"]!! as String,
-                            document.data["distrito"]!! as String,
-                            document.data["descripcion"]!! as String,
-                            document.data["imagenURL"]!! as String,
-                            document.data["estado"] as Boolean,
-                            document.data["userid"] as String,
-                            document.data["imageName"] as String)
-                    }
-                }
-                callbackOK(p!!)
-            }
     }
 
     fun getByUserIdAnuncio(id:String,callbackOK : (ArrayList<Anuncio>) -> Unit, callbackError: (String) -> Unit){
@@ -89,7 +67,7 @@ class AnuncioManager {
             .get()
             .addOnSuccessListener {
                     res->
-                val anuncios : ArrayList<Anuncio> = ArrayList();
+                var anuncios : ArrayList<Anuncio> = ArrayList();
                 for(document in res){
                     val p = Anuncio(
                         document.id,
@@ -103,7 +81,8 @@ class AnuncioManager {
                     )
                     anuncios.add(p)
                 }
-                callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
+                if(anuncios.size > 1) anuncios = anuncios.reversed() as ArrayList<Anuncio>
+                callbackOK(anuncios)
             }
     }
 
@@ -113,7 +92,7 @@ class AnuncioManager {
             .get()
             .addOnSuccessListener {
                     res->
-                val anuncios : ArrayList<Anuncio> = ArrayList();
+                var anuncios : ArrayList<Anuncio> = ArrayList();
                 for(document in res){
 
                     val p = Anuncio(
@@ -128,7 +107,8 @@ class AnuncioManager {
                     )
                     anuncios.add(p)
                 }
-                callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
+                if(anuncios.size > 1) anuncios = anuncios.reversed() as ArrayList<Anuncio>
+                callbackOK(anuncios)
             }
     }
 

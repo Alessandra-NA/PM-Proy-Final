@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -39,6 +40,7 @@ class ChatDirectoFragment(var mensajes: ArrayList<Mensaje>,
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        this.activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         return inflater.inflate(R.layout.fragment_chatdirecto, container, false)
     }
     lateinit var imgUri: Uri
