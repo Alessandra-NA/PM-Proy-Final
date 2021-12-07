@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.1" />
-        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.1" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/activity_signup.xml" value="0.1585144927536232" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_anuncios.xml" value="0.22" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatdirecto.xml" value="0.1585144927536232" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_chatprincipal.xml" value="0.1585144927536232" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_detalle_anuncio.xml" value="0.5" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/fragment_nuevoanuncio.xml" value="0.25" />
+        <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio.xml" value="0.25" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_anuncio_perfil.xml" value="0.18" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_message.xml" value="0.17980072463768115" />
         <entry key="..\:/DATA/PROGRA MOVIL/FINAL/I2/PM-Proy-Final/app/src/main/res/layout/item_previewmessage.xml" value="0.17980072463768115" />

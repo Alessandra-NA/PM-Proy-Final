@@ -7,5 +7,6 @@ data class Anuncio(
     var descripcion: String,
     var imagenURL: String,
     var estado: Boolean,
-    var userid: String
+    var userid: String,
+    var imageName: String
 )

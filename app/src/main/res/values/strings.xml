@@ -1,11 +1,97 @@
 <resources>
     <string name="app_name">PM-Proy-Final</string>
     <string-array name="distritos">
-        <item>San Luis</item>
+        <item>Ancon</item>
+        <item>Ate vitarte</item>
+        <item>Barranco</item>
+        <item>breña</item>
+        <item>Carabayllo</item>
+        <item>Chaclacayo</item>
+        <item>Chorrillos</item>
+        <item>Cieneguilla</item>
+        <item>Comas</item>
+        <item>El agustino</item>
+        <item>Independencia</item>
+        <item>Jesus maria</item>
         <item>La molina</item>
-        <item>Brazil</item>
-        <item>Ecuador</item>
+        <item>La victoria</item>
+        <item>Lima</item>
+        <item>Lince</item>
+        <item>Los olivos</item>
+        <item>Lugirancho</item>
+        <item>Lurin</item>
+        <item>Magdalena del mar</item>
+        <item>Miraflores</item>
+        <item>Pachacamac</item>
+        <item>Pucusana</item>
+        <item>Pueblo libre</item>
+        <item>Punta hermosa</item>
+        <item>Punta negra</item>
+        <item>Rimac</item>
+        <item>San bartolo</item>
+        <item>San Borja</item>
+        <item>San isidro</item>
+        <item>San juan de lugirancho</item>
+        <item>San juan de miraflores</item>
+        <item>San Luis</item>
+        <item>San Martin de porres</item>
+        <item>San miguel</item>
+        <item>Santa anita</item>
+        <item>Santa maria del mar</item>
+        <item>Santa rosa</item>
+        <item>Santiago de surco</item>
+        <item>Surquillo</item>
+        <item>Villa del salvador</item>
+        <item>Villa maria del triunfo</item>
+        <item>Autobus</item>
     </string-array>
+    <string-array name="distritosA">
+        <item>Ancon</item>
+        <item>Ate vitarte</item>
+        <item>Barranco</item>
+        <item>breña</item>
+        <item>Carabayllo</item>
+        <item>Chaclacayo</item>
+        <item>Chorrillos</item>
+        <item>Cieneguilla</item>
+        <item>Comas</item>
+        <item>El agustino</item>
+        <item>Independencia</item>
+        <item>Jesus maria</item>
+        <item>La molina</item>
+        <item>La victoria</item>
+        <item>Lima</item>
+        <item>Lince</item>
+        <item>Los olivos</item>
+        <item>Lugirancho</item>
+        <item>Lurin</item>
+        <item>Magdalena del mar</item>
+        <item>Miraflores</item>
+        <item>Pachacamac</item>
+        <item>Pucusana</item>
+        <item>Pueblo libre</item>
+        <item>Punta hermosa</item>
+        <item>Punta negra</item>
+        <item>Rimac</item>
+        <item>San bartolo</item>
+        <item>San Borja</item>
+        <item>San isidro</item>
+        <item>San juan de lugirancho</item>
+        <item>San juan de miraflores</item>
+        <item>San Luis</item>
+        <item>San Martin de porres</item>
+        <item>San miguel</item>
+        <item>Santa anita</item>
+        <item>Santa maria del mar</item>
+        <item>Santa rosa</item>
+        <item>Santiago de surco</item>
+        <item>Surquillo</item>
+        <item>Villa del salvador</item>
+        <item>Villa maria del triunfo</item>
+        <item>Autobus</item>
+        <item>Todos</item>
+    </string-array>
+
     <string-array name="estado">
         <item>PERDIDO</item>
         <item>ENCONTRADO</item>

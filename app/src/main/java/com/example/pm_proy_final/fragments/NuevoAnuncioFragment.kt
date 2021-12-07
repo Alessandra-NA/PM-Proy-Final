@@ -14,10 +14,12 @@ import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.managers.AnuncioManager
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import java.util.*
 
 class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSelectedListener {
 
@@ -134,8 +136,9 @@ class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSe
 
 
     private fun FileUploader(){
-        var a = this.actual_img!!.lastPathSegment as String
-        var filePath = this.storagered!!.child("fotos").child(a)
+//        var a = this.actual_img!!.lastPathSegment as String
+        var nombre = (Date().time.toString())
+        var filePath = this.storagered!!.child("fotos").child(nombre)
 
         filePath.putFile(this.actual_img!!).addOnSuccessListener { it->
             filePath.downloadUrl.addOnSuccessListener { a->
@@ -147,18 +150,31 @@ class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSe
                     this.image_URL!!,
                     this.estado!!.selectedItem.toString()=="ENCONTRADO"
                     ,
-                    this.codigouser
+                    this.codigouser,
+                    nombre
                 )
 //                Glide.with(requireContext())
 //                    .load(a.toString())
 //                    .into(imagen!!)
                 Toast.makeText(requireContext(),"Anuncio ingresado con exito",Toast.LENGTH_SHORT).show()
+                CleanItems()
             }
         }
 
 
 
     }
+
+
+    fun CleanItems(){
+        this.titulo_post!!.setText("")
+        this.descripcion_post!!.setText("")
+        Glide.with(requireContext())
+            .load("")
+            .into(imagen!!)
+    }
+
+
 
 //imagen
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {

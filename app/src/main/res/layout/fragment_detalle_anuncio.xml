@@ -7,8 +7,10 @@
 
     <ImageView
         android:id="@+id/imagen_detalle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:maxHeight="250dp"
+        android:maxWidth="250dp"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +48,12 @@
         android:layout_width="227dp"
         android:layout_height="46dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-black"
         android:maxWidth="200dp"
         android:maxHeight="70dp"
         android:text="Titulo"
-        android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/chat_detalle_anuncio"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagen_detalle" />
@@ -61,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:text="Distrito: "
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +76,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:text="Distrito_info"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView13"
@@ -82,7 +85,7 @@
     <TextView
         android:id="@+id/descripcion_detalle"
         android:layout_width="327dp"
-        android:layout_height="257dp"
+        android:layout_height="200dp"
         android:layout_marginTop="8dp"
         android:maxWidth="342dp"
         android:maxHeight="110dp"

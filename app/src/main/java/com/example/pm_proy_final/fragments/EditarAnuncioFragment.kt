@@ -20,6 +20,12 @@ import com.example.pm_proy_final.managers.AnuncioManager
 import com.example.pm_proy_final.models.Anuncio
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.okhttp.Dispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
 class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSelectedListener {
     private var imagen : ImageView? = null
@@ -28,6 +34,8 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
     private var distritos : Spinner?=null
     private var estado: Spinner?= null
 
+
+    private var seleccion: Boolean=false
     private var Anuncio1: Anuncio = anuncio
     private var storagered: StorageReference?= null;
 //    private var imgref: DatabaseReference?=null;
@@ -61,10 +69,50 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
         imagen = view.findViewById(R.id.imagen_editar)
 
         var a : ArrayList<String> = ArrayList<String>()
-        a.add("San Luis")
+
+        a.add("Ancon")
+        a.add("Ate vitarte")
+        a.add("Barranco")
+        a.add("breña")
+        a.add("Carabayllo")
+        a.add("Chaclacayo")
+        a.add("Chorrillos")
+        a.add("Cieneguilla")
+        a.add("Comas")
+        a.add("El agustino")
+        a.add("Independencia")
+        a.add("Jesus maria")
         a.add("La molina")
-        a.add("Brazil")
-        a.add("Ecuador")
+        a.add("La victoria")
+        a.add("Lima")
+        a.add("Lince")
+        a.add("Los olivos")
+        a.add("Lugirancho")
+        a.add("Lurin")
+        a.add("Magdalena del mar")
+        a.add("Miraflores")
+        a.add("Pachacamac")
+        a.add("Pucusana")
+        a.add("Pueblo libre")
+        a.add("Punta hermosa")
+        a.add("Punta negra")
+        a.add("Rimac")
+        a.add("San bartolo")
+        a.add("San Borja")
+        a.add("San isidro")
+        a.add("San juan de lugirancho")
+        a.add("San juan de miraflores")
+        a.add("San Luis")
+        a.add("San Martin de porres")
+        a.add("San miguel")
+        a.add("Santa anita")
+        a.add("Santa maria del mar")
+        a.add("Santa rosa")
+        a.add("Santiago de surco")
+        a.add("Surquillo")
+        a.add("Villa del salvador")
+        a.add("Villa maria del triunfo")
+        a.add("Autobus")
 
         //llenado de datos
         for(i in 0..a.size-1){
@@ -142,6 +190,8 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
         ActivityResultContracts.StartActivityForResult()
     ){result ->
         if(result.resultCode == Activity.RESULT_OK){
+            //se ha seleccionado
+                this.seleccion=true
             val data = result.data?.data
             //opcional, resize the image-> data equals uri
             this.actual_img=data
@@ -156,36 +206,62 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
         startForActivityGallery.launch(intent)
     }
 
+    private fun deleteImage(filename: String) {
+        this.storagered!!.child("fotos/$filename").delete().addOnSuccessListener {
+            Toast.makeText(requireContext(),"Imagen eliminada con exito", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
 
     private fun FileUploader(){
 
         //se debe eliminar los storages anteriores aqui
-        var a = this.actual_img!!.lastPathSegment as String
-
-        var filePath = this.storagered!!.child("fotos").child(a)
-
         //Primero se debe hacer una limpieza-pendiente
+        if(this.seleccion){
 
-        filePath.putFile(this.actual_img!!).addOnSuccessListener { it->
-            filePath.downloadUrl.addOnSuccessListener { a->
-                this.image_URL = a.toString()
+            this.deleteImage(this.Anuncio1.imageName)
 
-                var nuevo = Anuncio(
-                    "0",
-                    titulo_edit!!.text.toString(),
-                    this.distritos!!.selectedItem.toString(),
-                    this.descripcion_edit!!.text.toString(),
-                    this.image_URL!!,
-                    this.estado!!.selectedItem.toString()=="ENCONTRADO"
-                    ,
-                    this.Anuncio1.userid
-                )
+            var nombre = (Date().time.toString())
+            var filePath = this.storagered!!.child("fotos").child(nombre)
 
-                AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo)
+            filePath.putFile(this.actual_img!!).addOnSuccessListener { it->
+                filePath.downloadUrl.addOnSuccessListener { a->
+                    this.image_URL = a.toString()
 
-                Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
+                    var nuevo = Anuncio(
+                        "0",
+                        titulo_edit!!.text.toString(),
+                        this.distritos!!.selectedItem.toString(),
+                        this.descripcion_edit!!.text.toString(),
+                        this.image_URL!!,
+                        this.estado!!.selectedItem.toString()=="ENCONTRADO"
+                        ,
+                        this.Anuncio1.userid,
+                        nombre
+                    )
+
+                    AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo)
+
+                    Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
+                }
             }
+        }else{
+            var nuevo = Anuncio(
+                "0",
+                titulo_edit!!.text.toString(),
+                this.distritos!!.selectedItem.toString(),
+                this.descripcion_edit!!.text.toString(),
+                this.Anuncio1.imagenURL,
+                this.estado!!.selectedItem.toString()=="ENCONTRADO"
+                ,
+                this.Anuncio1.userid,
+                this.Anuncio1.imageName
+            )
+            AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo)
+            Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
         }
+
 
 
 

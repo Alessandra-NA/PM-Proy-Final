@@ -1,5 +1,6 @@
 package com.example.pm_proy_final.adapters
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,14 +13,20 @@ import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.models.Anuncio
 import com.example.pm_proy_final.models.Usuario
+import java.util.stream.Collectors
 
 class AnuncioListAdapter(
     private val usuario: Usuario,
-    private val anuncioList : List<Anuncio>,
+    private var anuncioList : ArrayList<Anuncio>,
     private val fragment: Fragment,
     private val listener: (Anuncio)->Unit,
     private val listener2: (Anuncio)->Unit
 ) :RecyclerView.Adapter<AnuncioListAdapter.ViewHolder>() {
+
+    private var listaOriginal = ArrayList<Anuncio>()
+        init{
+            listaOriginal.addAll(anuncioList)
+        }
 
         class ViewHolder(
             view: View ,
@@ -47,7 +54,7 @@ class AnuncioListAdapter(
 
 
             override fun onClick(p0: View?) {
-                listener(this.anuncioList[adapterPosition])
+                listener(this.anuncioList.get(adapterPosition))
             }
         }
 
@@ -59,14 +66,14 @@ class AnuncioListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        println(anuncioList[position].userid == usuario.id)
-        if(anuncioList[position].userid == usuario.id) {
+        println(anuncioList.get(position).userid == usuario.id)
+        if(anuncioList.get(position).userid == usuario.id) {
             holder.coment.visibility = View.INVISIBLE
             holder.coment.marginStart
         }
-        holder.txtitulo.text = anuncioList[position].titulo
+        holder.txtitulo.text = anuncioList.get(position).titulo
         Glide.with(fragment)
-            .load(anuncioList[position].imagenURL)
+            .load(anuncioList.get(position).imagenURL)
             .fitCenter()
             .into(holder.imagen)
 
@@ -81,11 +88,42 @@ class AnuncioListAdapter(
             .into(holder.coment)
 
 
-        holder.coment.setOnClickListener { listener2(anuncioList[position]) }
+        holder.coment.setOnClickListener { listener2(anuncioList.get(position)) }
 
-        if(anuncioList[position].estado) holder.txtEstadp.text = "ENCONTRADO"
+        if(anuncioList.get(position).estado) holder.txtEstadp.text = "ENCONTRADO"
         else holder.txtEstadp.text = "PERDIDO"
 //
+    }
+
+    fun filtrado(txtBuscar:String?){
+        if(txtBuscar!=null){
+            var longitud = txtBuscar.length
+            if(longitud==0){
+                this.anuncioList.clear()
+                this.anuncioList.addAll(this.listaOriginal)
+
+            } else{
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    var coleccion =
+                        this.anuncioList.stream()
+                            .filter{
+                                it.titulo.toLowerCase().contains(txtBuscar.toLowerCase())
+                            }.collect(Collectors.toList())
+                    this.anuncioList.clear()
+                    this.anuncioList.addAll(coleccion)
+                } else {
+                    this.anuncioList.clear()
+                    for(c in listaOriginal){
+                        if(c.titulo.toLowerCase().contains(txtBuscar.toLowerCase())){
+                            this.anuncioList.add(c)
+                        }
+
+                    }
+                };
+            }
+            notifyDataSetChanged()
+        }
+
     }
 
 
