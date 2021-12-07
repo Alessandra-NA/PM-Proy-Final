@@ -83,7 +83,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     fun changeNuevoAnuncioFragment(){
         currentFragment = "nuevo"
         setTitle("Nuevo anuncio")
-        var fragment = NuevoAnuncioFragment(this.usuario.id)
+        var fragment = NuevoAnuncioFragment(usuario, this.usuario.id)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -139,7 +139,7 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
     fun changeEditarAnuncio(anuncio1:Anuncio){
         currentFragment = "editar"
         setTitle("Editando anuncio")
-        var fragment = EditarAnuncioFragment(anuncio1)
+        var fragment = EditarAnuncioFragment(usuario, anuncio1)
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.fragmentMain, fragment)
         ft.commit()
@@ -148,7 +148,6 @@ AnunciosFragment.OnAnuncioSelectedListener,PerfilFragment.OnAnuncioPerfilSelecte
         AnuncioManager().getCountAnuncios(){
             if(it>countAnuncios){
                 if(countAnuncios!=0) {
-                    sendNotification()
                     if (currentFragment == "anuncios") changeAnunciosFragment()
                     //if (currentFragment == "chat")  ChatDirectoFragment("","","","").
                 }

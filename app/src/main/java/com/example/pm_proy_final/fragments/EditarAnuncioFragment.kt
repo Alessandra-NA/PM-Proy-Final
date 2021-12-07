@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.managers.AnuncioManager
 import com.example.pm_proy_final.models.Anuncio
+import com.example.pm_proy_final.models.Usuario
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.okhttp.Dispatcher
@@ -27,7 +28,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 import kotlin.collections.ArrayList
 
-class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSelectedListener {
+class EditarAnuncioFragment(var usuario: Usuario,anuncio: Anuncio):Fragment(), AdapterView.OnItemSelectedListener {
     private var imagen : ImageView? = null
     private var titulo_edit : EditText?=null
     private var descripcion_edit : EditText?=null
@@ -240,9 +241,13 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
                         nombre
                     )
 
-                    AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo)
-
-                    Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
+                    AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo){
+                        Toast.makeText(requireContext(),"Anuncio editado con éxito", Toast.LENGTH_SHORT).show()
+                        var fragment = AnunciosFragment(usuario)
+                        val ft = fragmentManager?.beginTransaction()
+                        ft?.replace(R.id.fragmentMain, fragment)
+                        ft?.commit()
+                    }
                 }
             }
         }else{
@@ -257,8 +262,14 @@ class EditarAnuncioFragment(anuncio: Anuncio):Fragment(), AdapterView.OnItemSele
                 this.Anuncio1.userid,
                 this.Anuncio1.imageName
             )
-            AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo)
-            Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
+            AnuncioManager().EditarAnuncio(this.Anuncio1.id,nuevo){
+                Toast.makeText(requireContext(),"Anuncio editado con exito", Toast.LENGTH_SHORT).show()
+                var fragment = AnunciosFragment(usuario)
+                val ft = fragmentManager?.beginTransaction()
+                ft?.replace(R.id.fragmentMain, fragment)
+                ft?.commit()
+            }
+
         }
 
 

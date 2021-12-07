@@ -55,7 +55,7 @@ class AnuncioManager {
                    )
                    anuncios.add(p)
                }
-               callbackOK(anuncios)
+               callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
            }
     }
 
@@ -103,7 +103,7 @@ class AnuncioManager {
                     )
                     anuncios.add(p)
                 }
-                callbackOK(anuncios)
+                callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
             }
     }
 
@@ -128,11 +128,11 @@ class AnuncioManager {
                     )
                     anuncios.add(p)
                 }
-                callbackOK(anuncios)
+                callbackOK(anuncios.reversed() as ArrayList<Anuncio>)
             }
     }
 
-    fun EditarAnuncio(id:String, Anuncio:Anuncio){
+    fun EditarAnuncio(id:String, Anuncio:Anuncio, callbackOK: () -> Unit){
 
         val anuncio1= hashMapOf(
             "titulo"  to Anuncio.titulo,
@@ -146,6 +146,7 @@ class AnuncioManager {
         dbFirebase.collection("anuncios")
             .document(id)
             .set(anuncio1)
+        callbackOK()
     }
 
 

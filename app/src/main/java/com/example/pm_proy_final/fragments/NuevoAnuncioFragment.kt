@@ -17,11 +17,12 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.pm_proy_final.R
 import com.example.pm_proy_final.managers.AnuncioManager
+import com.example.pm_proy_final.models.Usuario
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.util.*
 
-class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSelectedListener {
+class NuevoAnuncioFragment(var usuario: Usuario, usercodigo: String): Fragment(), AdapterView.OnItemSelectedListener {
 
     private var imagen : ImageView? = null
     private var titulo_post : EditText?=null
@@ -157,6 +158,11 @@ class NuevoAnuncioFragment(usercodigo: String): Fragment(), AdapterView.OnItemSe
 //                    .into(imagen!!)
                 Toast.makeText(requireContext(),"Anuncio ingresado con exito",Toast.LENGTH_SHORT).show()
                 CleanItems()
+
+                var fragment = AnunciosFragment(usuario)
+                val ft = fragmentManager?.beginTransaction()
+                ft?.replace(R.id.fragmentMain, fragment)
+                ft?.commit()
             }
         }
 
